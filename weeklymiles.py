@@ -8,8 +8,10 @@ args = parser.parse_args()
 
 avgs = args.avgs
 aggregated = [0 for _ in range(len(avgs))]
-if len(avgs) > 1:
+if len(avgs) >= 1:
     aggregated[0] = avgs[0]
+
+if len(avgs) > 1:
     for i in range(1, len(avgs)):
         aggregated[i] = avgs[i] + aggregated[i-1]
         if i >= 7:
